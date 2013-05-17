@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>EC2 Version Checker by alexluke</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/alexluke/ec2_version_checker">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/alexluke/ec2_version_checker/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/alexluke/ec2_version_checker/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>EC2 Version Checker</h1>
+          <p></p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/alexluke">alexluke</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
+        </div>
+
+        <p>This is a <a href="http://fabfile.org">fabric</a> script to check the release version of Linux servers running in Amazon EC2. On Debian based servers, it will also report the number pending updates.</p>
+
+<h2>Metrics reported</h2>
+
+<ul>
+<li>EC2 server name</li>
+<li>OS version</li>
+<li>Kernel version</li>
+<li>Processor architecture</li>
+<li>Any pending updates</li>
+</ul><h2>Installing</h2>
+
+<p>Install the requirements with <code>pip install -r requirements.txt</code>. Using a <a href="http://www.virtualenv.org/">virtualenv</a> is recommended.</p>
+
+<p>Set up your AWS credentials per the <a href="http://docs.pythonboto.org/en/latest/boto_config_tut.html">Boto docs</a></p>
+
+<h2>Running</h2>
+
+<p>Running <code>fab</code> in the source directory will fetch a list of servers from EC2 and output a spreadsheet with the above metrics.</p>
+
+<p>You can specific the username to use with the <code>-u</code> command line option and/or the ssh key file to use with <code>-i</code>.</p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
