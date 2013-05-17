@@ -4,7 +4,10 @@ This is a [fabric](http://fabfile.org) script to check the release version of Li
 
 ## Metrics reported
 
-* EC2 server name
+* Instance ID
+* Server name (from the EC2 `Name` tag)
+* IP address
+* Public hostname
 * OS version
 * Kernel version
 * Processor architecture
