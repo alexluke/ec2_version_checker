@@ -55,7 +55,7 @@ def fetch():
 	sheet.write(0, 4, 'OS Version')
 	sheet.write(0, 5, 'Kernel Version')
 	sheet.write(0, 6, 'Processor Architecture')
-	sheet.write(0, 7, 'Pending Available')
+	sheet.write(0, 7, 'Updates Available')
 	execute(get_info, hosts=instances.keys())
 	workbook.save('servers.xls')
 
