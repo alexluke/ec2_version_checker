@@ -24,8 +24,8 @@ def get_info():
 	host = env.instances[env.host]
 	sheet.write(row_index, 0, host[0])
 	sheet.write(row_index, 1, host[1])
-	sheet.write(row_index, 2, env.host)
-	sheet.write(row_index, 3, host[2])
+	sheet.write(row_index, 2, host[2])
+	sheet.write(row_index, 3, env.host)
 	sheet.write(row_index, 4, version)
 	sheet.write(row_index, 5, kernel)
 	sheet.write(row_index, 6, arch)
