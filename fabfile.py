@@ -21,6 +21,8 @@ def get_info():
 	if updates_available.return_code != 0:
 		updates_available = run("apt-get -s -o Debug::NoLocking=true upgrade | grep -c ^Inst", warn_only=True)
 
+	root_space_left = run("df -h / | awk '{ print $4 }'|tail -n 1")
+
 	host = env.instances[env.host]
 	sheet.write(row_index, 0, host[0])
 	sheet.write(row_index, 1, host[1])
@@ -30,6 +32,7 @@ def get_info():
 	sheet.write(row_index, 5, kernel)
 	sheet.write(row_index, 6, arch)
 	sheet.write(row_index, 7, updates_available)
+	sheet.write(row_index, 8, root_space_left)
 	row_index += 1
 
 @task(default=True)
@@ -56,6 +59,7 @@ def fetch():
 	sheet.write(0, 5, 'Kernel Version')
 	sheet.write(0, 6, 'Processor Architecture')
 	sheet.write(0, 7, 'Updates Available')
+	sheet.write(0, 8, 'Space left on /')
 	execute(get_info, hosts=instances.keys())
 	workbook.save('servers.xls')
 
