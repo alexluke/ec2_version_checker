@@ -12,6 +12,7 @@ This is a [fabric](http://fabfile.org) script to check the release version of Li
 * Kernel version
 * Processor architecture
 * Any pending updates
+* Free space on root partition
 
 ## Installing
 
