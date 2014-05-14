@@ -1,5 +1,6 @@
 from boto import ec2
 from fabric.api import *
+from fabric.contrib import files
 import xlwt
 
 env.skip_bad_hosts = True
@@ -23,6 +24,8 @@ def get_info():
 
 	root_space_left = run("df -h / | awk '{ print $4 }'|tail -n 1")
 
+	reboot_required = files.exists('/var/run/reboot-required', verbose=True)
+
 	host = env.instances[env.host]
 	sheet.write(row_index, 0, host[0])
 	sheet.write(row_index, 1, host[1])
@@ -33,6 +36,7 @@ def get_info():
 	sheet.write(row_index, 6, arch)
 	sheet.write(row_index, 7, updates_available)
 	sheet.write(row_index, 8, root_space_left)
+	sheet.write(row_index, 9, reboot_required and 'Yes' or 'No')
 	row_index += 1
 
 @task(default=True)
@@ -60,6 +64,7 @@ def fetch():
 	sheet.write(0, 6, 'Processor Architecture')
 	sheet.write(0, 7, 'Updates Available')
 	sheet.write(0, 8, 'Space left on /')
+	sheet.write(0, 9, 'Reboot required?')
 	execute(get_info, hosts=instances.keys())
 	workbook.save('servers.xls')
 
